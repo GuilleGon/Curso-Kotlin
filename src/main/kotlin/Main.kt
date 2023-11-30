@@ -1,13 +1,16 @@
-const val PI = 3.1416
 fun main(args: Array<String>) {
-    val listaDeFrutas = listOf("Manzana", "Pera", "Frutilla", "Durazno")
-    for (fruta in listaDeFrutas)
-        println("Fruta: $fruta")
+    val vocalesRepetidas = setOf("a","e","i","o","u","a","e","i","o","u")
+    println(vocalesRepetidas)
 
-    var nombre: String? = null
-   try {
-       nombre!!.length
-   }catch (excepcion: NullPointerException){
-       println("Ah ocurrido un error")
-   }
+    val numeroFavoritos = mutableSetOf(1,2,3,4)
+    println(numeroFavoritos)
+    numeroFavoritos.add(5)
+    numeroFavoritos.add(5)
+    println(numeroFavoritos)
+
+    numeroFavoritos.remove(5)
+    println(numeroFavoritos)
+
+    val valorDelSet = numeroFavoritos.firstOrNull{ numero -> numero > 2}
+    println(valorDelSet)
 }
