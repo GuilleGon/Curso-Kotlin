@@ -1,19 +1,22 @@
-
 fun main(args: Array<String>) {
-    val fraseAleatoria = "Pablito clavo un clavito".randomCase()
-    imprimirFrase(fraseAleatoria)
+    val largoDeValorInicial = superFuncion(valorInicial = "hola!", block = { valor ->
+        valor.length
+    })
+    println(largoDeValorInicial)
+
+    val lambda = funcionInception("Guillermo")
+    val valorLambda = lambda()
+
+    println(valorLambda)
 }
 
-fun imprimirFrase(frase: String): Unit {
-    println("Fase: $frase")
+
+fun superFuncion(valorInicial: String, block: (String) -> Int): Int {
+    return block(valorInicial)
 }
 
-fun String.randomCase(): String {
-    val numeroAleatorio = 0..99
-    val resultadoAleatorio = numeroAleatorio.random()
-    return if (resultadoAleatorio.rem(2) == 0) {
-        this.toUpperCase()
-    } else {
-        this.toLowerCase()
+fun funcionInception(nombre: String) : () -> String{
+    return{
+        "Hola desde la lambda $nombre"
     }
 }
